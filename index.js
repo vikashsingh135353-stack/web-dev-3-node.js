@@ -1,11 +1,21 @@
-const http = require("http");
+const http = require('http');
 
-const server = http.createServer((req, res)=>{
-    console.log("Server start ho gya hai ");
-    res.end("server start ho gya hai successfully");
+// Create server — callback fires on every request
+const server = http.createServer((req, res) => {
+
+  // Write response body
+  res.write('<h1>Welcome to Node.js!</h1>');
+  res.write('<p>Your first HTTP server is running.</p>');
+
+  // End the response (required!)
+  res.end();
 });
 
-server.listen(3002, () => {
-    console.log("server is running on port 3002");
-    
+// Start listening on port 3000
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
 });
+
+// Visit: http://localhost:3000 in your browser
+
+
